@@ -1,0 +1,57 @@
+/* this selects all the elements that css can apply to and changes the fonts. */
+*, *::before, *::after {
+    box-align: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #c71313, #2070d8);
+}
+
+.calculator-grid {
+    /* display makes it so each individual button is lined up like a grid*/
+    display: grid;
+    /* justify content aligns the buttons in the middle of the screen. */
+    justify-content: center;
+    /*  */
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 75px);
+    /* the minmax makes it so that it has a minimum height of 85px and its max can automatically adjust. */
+    grid-template-rows: minmax(85px, auto)repeat(5, 75px);
+}
+
+.calculator-grid > button {
+    /* this defines the look of the buttons, and makes it so that the cursor turns into a pointer when touching a button. */
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 1px solid black;
+    outline: none;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+.calculator-grid > button:hover {
+    /* This makes it so that when the mouse hovers over the button it stops being transparent. */
+    background-color: rgba(255, 255, 255, 1);
+
+}
+
+.two-big {
+    /* Makes the buttons with the two big class span 2 boxes. */
+    grid-column: span 2;
+}
+
+.output-box {
+    /* doing 1 / -1 is same as saying that the column should fill from the first to last box. */
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .8) ;
+    /* the display being flex makes the previous and current operations fit the output box's shape*/
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* this makes the operations fit the box vertically instead of horizontally. */
+    flex-direction: column;
+}
